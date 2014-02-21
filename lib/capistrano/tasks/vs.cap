@@ -1,6 +1,7 @@
 set :vs_app_name, 'test4'
 set :vs_repo_url, 'git@github.com:VoroninNick/test4.git'
 set :vs_deploy_to, '/home/applications/www/test4'
+set :dns_names, %w[zurc.voroninstudio.eu www.zurc.voroninstudio.eu]
 
 set :vs_rvm_path, '[[ -s "$HOME/.rvm/bin/rvm" ]] && . "$HOME/.rvm/bin/rvm"'
 namespace :vs do
@@ -10,6 +11,13 @@ namespace :vs do
     invoke 'vs:bundle_install'
     invoke 'vs:rake_db_create'
     invoke 'vs:rake_db_migrate'
+  end
+
+  desc 'restart'
+  task :restart do
+    on roles :app do
+      run "/opt/nginx"
+    end
   end
 
   desc 'deploy'

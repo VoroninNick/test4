@@ -1,4 +1,8 @@
 Test4::Application.routes.draw do
+  devise_for :users
+  mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
+  resources :books
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -53,4 +57,7 @@ Test4::Application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+
+  match '*a', to: 'books#index'
+  root to: 'books#index'
 end
