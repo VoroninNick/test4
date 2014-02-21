@@ -45,6 +45,8 @@ gem 'capistrano-rails', group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+gem 'protected_attributes'
+
 gem 'foundation-rails'
 gem 'slim-rails'
 gem 'simple_form'
