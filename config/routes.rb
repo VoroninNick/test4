@@ -1,5 +1,5 @@
 Test4::Application.routes.draw do
-  devise_for :users
+  #devise_for :users
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
   resources :books
 
@@ -58,6 +58,6 @@ Test4::Application.routes.draw do
   #     resources :products
   #   end
 
-  match '*a', to: 'books#index'
+  get '*a', to: 'books#index'
   root to: 'books#index'
 end
