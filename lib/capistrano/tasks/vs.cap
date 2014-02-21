@@ -11,12 +11,13 @@ namespace :vs do
     invoke 'vs:bundle_install'
     invoke 'vs:rake_db_create'
     invoke 'vs:rake_db_migrate'
+    invoke 'vs:restart'
   end
 
   desc 'restart'
   task :restart do
     on roles :app do
-      run "/opt/nginx"
+      run "nginx-200-restart"
     end
   end
 
