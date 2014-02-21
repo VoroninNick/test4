@@ -53,3 +53,5 @@ gem 'ckeditor'
 
 gem 'devise'
 
+gem 'better_errors'
+
